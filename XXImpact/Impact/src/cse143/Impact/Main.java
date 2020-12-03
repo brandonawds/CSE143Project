@@ -25,5 +25,6 @@ public class Main {
 		
 		// Telling bot to listen to commands
 		jda.addEventListener(new Commands());
+		jda.addEventListener(new CurrencySystem());
 	}
 }
