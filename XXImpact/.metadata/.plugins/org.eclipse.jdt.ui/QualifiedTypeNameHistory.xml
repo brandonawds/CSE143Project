@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="net.dv8tion.jda.api.JDA"/>
+    <fullyQualifiedTypeName name="net.dv8tion.jda.api.JDABuilder"/>
+    <fullyQualifiedTypeName name="net.dv8tion.jda.api.AccountType"/>
+    <fullyQualifiedTypeName name="net.dv8tion.jda.api.OnlineStatus"/>
+    <fullyQualifiedTypeName name="net.dv8tion.jda.api.entities.Activity"/>
+</qualifiedTypeNameHistroy>
