@@ -15,7 +15,6 @@ public class CurrencySystem extends ListenerAdapter {
 	
 	public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
 		String[] args = event.getMessage().getContentRaw().split(" ");
-		startTimer();
 		
 		// If !money, bot will send showing the users currency
 		if (args[0].equalsIgnoreCase(Main.prefix + "money")) {

@@ -23,8 +23,11 @@ public class Main {
 		// Setting bot activity with setActivity(Activity.playing/watching/etc)
 		jda.getPresence().setActivity(Activity.playing("VALORANT"));
 		
+		CurrencySystem system = new CurrencySystem();
+		system.startTimer();
+		
 		// Telling bot to listen to commands
 		jda.addEventListener(new Commands());
-		jda.addEventListener(new CurrencySystem());
+		jda.addEventListener(system);
 	}
 }
