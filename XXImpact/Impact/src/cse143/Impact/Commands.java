@@ -32,6 +32,6 @@ public class Commands extends ListenerAdapter {
 		if (args[0].equalsIgnoreCase(Main.prefix + "ayy")) {
 			event.getChannel().sendTyping().queue();
 			event.getChannel().sendMessage("lmao").queue();
-		}		
+		}
 	}
 }

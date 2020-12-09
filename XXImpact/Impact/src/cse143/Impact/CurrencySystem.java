@@ -1,17 +1,22 @@
 package cse143.Impact;
 
 import java.util.HashMap;
+import java.util.Random;
+import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
 
+//import cse143.Impact.Roll.Prize;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class CurrencySystem extends ListenerAdapter {
 	// Store user currency and cooldown timers
-	HashMap<Member, Integer> playerCurrency = new HashMap<>();
+	public static HashMap<Member, Integer> playerCurrency = new HashMap<>();
 	HashMap<Member, Integer> playerTimer = new HashMap<>();
+	//HashMap<Member, Set<Prize>> playerPrizes = new HashMap<>();
+	String[] prizeNames = {"Pidgey", "Growlithe", "Snorlax", "MewTwo"};
 	
 	public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
 		String[] args = event.getMessage().getContentRaw().split(" ");
@@ -45,13 +50,17 @@ public class CurrencySystem extends ListenerAdapter {
 		}
 	}
 	
+	public HashMap<Member, Integer> currencyMap() {
+		return playerCurrency;
+	}
+	
 	// Sets users currency
-	private void setPlayerCurrency(Member member, int num) {
+	public static void setPlayerCurrency(Member member, int num) {
 		playerCurrency.put(member, num);
 	}
 	
 	// Sets users cooldown timer
-	private void setPlayerTimer(Member member, int num) {
+	public void setPlayerTimer(Member member, int num) {
 		playerTimer.put(member, num);
 	}
 	
@@ -61,7 +70,7 @@ public class CurrencySystem extends ListenerAdapter {
 	}
 	
 	// Returns users curency
-	private int getPlayerCurrency(Member member ) {
+	public static int getPlayerCurrency(Member member ) {
 		return playerCurrency.get(member);
 	}
 	
@@ -99,3 +108,4 @@ public class CurrencySystem extends ListenerAdapter {
 		timer.schedule(task, 1000, 1000);
 	}
 }
+

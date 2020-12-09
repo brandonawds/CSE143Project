@@ -6,6 +6,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Vincent/Desktop/CSE143Project/JDA-4.2.0_222-withDependencies.jar"/>
+	<classpathentry kind="lib" path="C:/Users/brand/Desktop/CSE143Project/JDA-4.2.0_222-withDependencies.jar"/>
+	<classpathentry kind="lib" path="C:/Users/brand/Desktop/CSE143Project/jda-utilities-2.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

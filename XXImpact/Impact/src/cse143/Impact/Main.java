@@ -15,7 +15,7 @@ public class Main {
 	// Main Method
 	public static void main(String[] args) throws LoginException {
 		// Creating the bot with the token they gave me in discord dev portal
-		jda = JDABuilder.createDefault("NzgzNTU4NDQzNTE5NzA1MDg4.X8cfqg._Rdt7ZMFLK_8rHWeVDqdjg5qyMQ").build();
+		jda = JDABuilder.createDefault("NzgzNTU4NDQzNTE5NzA1MDg4.X8cfqg.Rny6gdJPesTvnBeqnIHm6gdqHio").build();
 		
 		// Setting bot as idle
 		jda.getPresence().setStatus(OnlineStatus.IDLE);
@@ -24,10 +24,15 @@ public class Main {
 		jda.getPresence().setActivity(Activity.playing("VALORANT"));
 		
 		CurrencySystem system = new CurrencySystem();
+		Roll roll = new Roll();
+		UserInfo info = new UserInfo();
 		system.startTimer();
 		
 		// Telling bot to listen to commands
 		jda.addEventListener(new Commands());
 		jda.addEventListener(system);
+		jda.addEventListener(roll);
+		jda.addEventListener(info);
+		
 	}
 }
