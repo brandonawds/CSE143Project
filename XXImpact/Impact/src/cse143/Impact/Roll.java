@@ -1,7 +1,5 @@
 package cse143.Impact;
 
-import java.awt.Color;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -51,6 +49,7 @@ public class Roll extends CurrencySystem {
 		}		
 	}
 	
+	// Adds a field to the embed with all your prizes
 	public static EmbedBuilder addPrizeFields(EmbedBuilder builder, Member member) {
 		Set<Prize> prizeSet = getPrizes(member);
 		for (Prize prize : prizeSet) {

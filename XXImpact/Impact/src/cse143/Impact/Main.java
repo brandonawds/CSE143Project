@@ -15,7 +15,7 @@ public class Main {
 	// Main Method
 	public static void main(String[] args) throws LoginException {
 		// Creating the bot with the token they gave me in discord dev portal
-		jda = JDABuilder.createDefault("NzgzNTU4NDQzNTE5NzA1MDg4.X8cfqg.Rny6gdJPesTvnBeqnIHm6gdqHio").build();
+		jda = JDABuilder.createDefault("NzgzNTU4NDQzNTE5NzA1MDg4.X8cfqg.rj_i-ZmTUH_z-bNCFwkninxnkI0").build();
 		
 		// Setting bot as idle
 		jda.getPresence().setStatus(OnlineStatus.IDLE);

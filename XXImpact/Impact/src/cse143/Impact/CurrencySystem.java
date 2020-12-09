@@ -49,11 +49,7 @@ public class CurrencySystem extends ListenerAdapter {
 			}
 		}
 	}
-	
-	public HashMap<Member, Integer> currencyMap() {
-		return playerCurrency;
-	}
-	
+		
 	// Sets users currency
 	public static void setPlayerCurrency(Member member, int num) {
 		playerCurrency.put(member, num);
