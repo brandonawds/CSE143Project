@@ -42,7 +42,7 @@ public class CurrencySystem extends ListenerAdapter {
 		if (args[0].equalsIgnoreCase(Main.prefix + "getmoney")) {
 			if (canGetCurrency(event.getMember())) {
 				addCurrency(event.getMember());
-				setPlayerTimer(event.getMember(), 60);
+				setPlayerTimer(event.getMember(), 10);
 				event.getChannel().sendMessage("Added 1 currency!").queue();
 			} else {
 				event.getChannel().sendMessage("You must wait " + getPlayerTimer(event.getMember()) + " seconds").queue();

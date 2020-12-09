@@ -23,16 +23,23 @@ public class UserInfo extends Roll {
 				Member name = event.getMessage().getMentionedMembers().get(0);
 				EmbedBuilder user = new EmbedBuilder();
 				//user.setAuthor(name.getEffectiveName(), name.getUser().getEffectiveAvatarUrl());
-				user.setTitle(name.getEffectiveName(), name.getUser().getAvatarUrl());
+				user.setAuthor(name.getEffectiveName(),name.getUser().getAvatarUrl(), name.getUser().getAvatarUrl());
 				user.setColor(0xa2defc);
-				// If this player has prizes, add prizes
+				
+				// Check prizes
 				if (playerPrizes.containsKey(name)) { 
-					user = addPrizeFields(user, name);
+					user = addPrizeFields(user, name, false);
+				} else {
+					event.getChannel().sendMessage("No Snails").queue();
 				}
-				// If this player has currency, add
+				
+				// Check Balance
 				if (playerCurrency.containsKey(name)) {
 					user.addField("Point Balance: ", String.valueOf(playerCurrency.get(name)), false);
+				} else {
+					event.getChannel().sendMessage(name.getEffectiveName() + " is broke :(").queue();
 				}
+				
 				
 				event.getChannel().sendMessage(user.build()).queue();
 				user.clear();
