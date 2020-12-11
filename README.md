@@ -45,3 +45,5 @@ characters that the user has rolled so far.
 To cause the bot to go offline, all you have to do is stop running the program. This however, does cause all of the values stored to be reset.
 
 ## Video Presentation
+
+https://youtu.be/CVehw-3iiYw
