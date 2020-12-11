@@ -9,14 +9,19 @@ and keep track of their roster & character stats.
 
 **!info**
 Responds with the information on what Snail Impact is about
+
 **!cd**
 Let's the user know the cool down time for commands
+
 **!points**
 Tells the user how much points they have
+
 **!getPoints**
 Gives the user X amount of points set
+
 **!roll**
 User rolls for a character spending X amount set
+
 **!mySnails**
 Shows the user their roster of characters they rolled overall
 
