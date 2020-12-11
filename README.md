@@ -20,6 +20,9 @@ User rolls for a character spending X amount set
 **!mySnails**
 Shows the user their roster of characters they rolled overall
 
+**!userInfo @<username>**
+shows the the mentioned user's prizes and their current balance
+
 TOKEN: NzgzNTU4NDQzNTE5NzA1MDg4.X8cfqg.rj_i-ZmTUH_z-bNCFwkninxnkI0
 
 # Running the Program
