@@ -28,8 +28,6 @@ Shows the user their roster of characters they rolled overall
 **!userInfo @(username)**
 shows the the mentioned user's prizes and their current balance
 
-TOKEN: NzgzNTU4NDQzNTE5NzA1MDg4.X8cfqg.rj_i-ZmTUH_z-bNCFwkninxnkI0
-
 # Running the Program
 Since we are using Discord as our server, all commands will need to be made on the Discord app for the bot to work. 
 
