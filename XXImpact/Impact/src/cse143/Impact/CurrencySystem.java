@@ -15,7 +15,7 @@ public class CurrencySystem extends ListenerAdapter {
 	// Stores the time left each player has before they can use the !getmoney command again
 	private HashMap<Member, Integer> playerTimer = new HashMap<>();
 	// The cooldown time for using the !getmoney command
-	private static final int TIMER = 10;
+	private static final int TIMER = 15;
 	// The amount of points you get from !getmoney
 	public static final int POINTS = 1; 
 	
@@ -28,13 +28,13 @@ public class CurrencySystem extends ListenerAdapter {
 			if(!playerCurrency.containsKey(event.getMember())) {
 				setPlayerCurrency(event.getMember(), 0);
 			}
-			event.getChannel().sendMessage("You have " + getPlayerCurrency(event.getMember()) + " points").queue();
+			event.getChannel().sendMessage("You have " + getPlayerCurrency(event.getMember()) + " point(s)").queue();
 		}
 		
 		// If !cd, bot will send remaining cooldown timer
 		if (args[0].equalsIgnoreCase(Main.PREFIX + "cd")) {
 			if(playerTimer.containsKey(event.getMember())) {
-				event.getChannel().sendMessage(getPlayerTimer(event.getMember()) + " seconds").queue();
+				event.getChannel().sendMessage(getPlayerTimer(event.getMember()) + " second(s)").queue();
 			} else {
 				event.getChannel().sendMessage("You can !getPoints now!").queue();
 			}

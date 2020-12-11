@@ -31,7 +31,7 @@ public class Roll extends CurrencySystem {
 				event.getChannel().sendMessage("You need points to roll. Try command: !getmoney").queue();
 			} else if(getPlayerCurrency(event.getMember()) > 0) {
 				Prize prize = rollRandomPrize();
-				setPlayerCurrency(event.getMember(), getPlayerCurrency(event.getMember()) - 1);
+				setPlayerCurrency(event.getMember(), getPlayerCurrency(event.getMember()) - COST);
 				addPrize(event.getMember(), prize);
 				// Sends update message to user as an embed
 				EmbedBuilder newRoll = new EmbedBuilder();

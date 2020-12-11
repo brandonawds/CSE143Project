@@ -1,0 +1,9 @@
+Reflection
+
+We learned about Discords Java Discord API (JDA) and how to create a bot on their platform. We utilized the terms/methods we 
+learned in class and was able to implement new codes to expand it. We enjoyed the aspect of being able to create something fun on a platform
+we all use. We like playing games so it was a big part of our inspiration. We know what we made is small because of the time constraint we have, but the 
+thought that we were even able to create it in the first place, and are cabable of more is exciting. Some things that were challenging was understanding 
+the new packages we needed to use and having to transer to Eclipse. It was our first time using that program so it took a little bit to figure out its features.
+We approached this project by looking up basic command bots and how those were made. After that, we would test and try to expand from them to get close to what 
+we want our bot to do. The Discord site itself was really helpful in guiding users on how to start up a bot on their servers and what limitations it has.

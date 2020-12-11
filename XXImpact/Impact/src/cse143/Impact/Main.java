@@ -15,7 +15,7 @@ public class Main {
 	// Main Method
 	public static void main(String[] args) throws LoginException {
 		// Creating the bot with the token they gave me in discord dev portal
-		jda = JDABuilder.createDefault(<ADD TOKEN HERE AS STRING>).build();
+		jda = JDABuilder.createDefault(<INSERT TOKEN HERE AS STRING>).build();
 		
 		// Setting bot activity 
 		jda.getPresence().setActivity(Activity.playing("Studying for CSE143"));
