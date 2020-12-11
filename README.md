@@ -1,4 +1,4 @@
-# Snail Impact user guide
+# Snail Impact User Guide
 Snail Impact is a Discord bot inspired by the gacha game system. A player pays a specific amount of points to “spin” the gacha,
 and then receives a random character with different rarity levels. Don’t worry, we won’t actually make you spend real money on
 waifus/husbandos. This bot will let Discord users join the game through inputted commands to gain points, spend those points on rolls,
