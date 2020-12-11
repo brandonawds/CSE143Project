@@ -1,49 +1,51 @@
 package cse143.Impact;
 
 import java.util.HashMap;
-import java.util.Random;
-import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
 
-//import cse143.Impact.Roll.Prize;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
+// Currency System creates virtual currency for users to spend on prizes
 public class CurrencySystem extends ListenerAdapter {
 	// Store user currency and cooldown timers
 	public static HashMap<Member, Integer> playerCurrency = new HashMap<>();
-	HashMap<Member, Integer> playerTimer = new HashMap<>();
-	//HashMap<Member, Set<Prize>> playerPrizes = new HashMap<>();
-	String[] prizeNames = {"Pidgey", "Growlithe", "Snorlax", "MewTwo"};
+	// Stores the time left each player has before they can use the !getmoney command again
+	private HashMap<Member, Integer> playerTimer = new HashMap<>();
+	// The cooldown time for using the !getmoney command
+	private static final int TIMER = 10;
+	// The amount of points you get from !getmoney
+	public static final int POINTS = 1; 
 	
+	// Reads discord messages and responds if they are commands.
 	public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
 		String[] args = event.getMessage().getContentRaw().split(" ");
 		
 		// If !money, bot will send showing the users currency
-		if (args[0].equalsIgnoreCase(Main.prefix + "money")) {
+		if (args[0].equalsIgnoreCase(Main.prefix + "points")) {
 			if(!playerCurrency.containsKey(event.getMember())) {
 				setPlayerCurrency(event.getMember(), 0);
 			}
-			event.getChannel().sendMessage("You have " + getPlayerCurrency(event.getMember())).queue();
+			event.getChannel().sendMessage("You have " + getPlayerCurrency(event.getMember()) + " points").queue();
 		}
 		
 		// If !cd, bot will send remaining cooldown timer
 		if (args[0].equalsIgnoreCase(Main.prefix + "cd")) {
 			if(playerTimer.containsKey(event.getMember())) {
-				event.getChannel().sendMessage(getPlayerTimer(event.getMember()) + "seconds").queue();
+				event.getChannel().sendMessage(getPlayerTimer(event.getMember()) + " seconds").queue();
 			} else {
-				event.getChannel().sendMessage("You can !getmoney now!").queue();
+				event.getChannel().sendMessage("You can !getPoints now!").queue();
 			}
 		}
 		
 		// If !getmoney, bot will add currency to user if user does not have a cooldown
-		if (args[0].equalsIgnoreCase(Main.prefix + "getmoney")) {
+		if (args[0].equalsIgnoreCase(Main.prefix + "getPoints")) {
 			if (canGetCurrency(event.getMember())) {
-				addCurrency(event.getMember());
-				setPlayerTimer(event.getMember(), 10);
-				event.getChannel().sendMessage("Added 1 currency!").queue();
+				addCurrency(event.getMember()); 
+				setPlayerTimer(event.getMember(), TIMER);
+				event.getChannel().sendMessage("Added " + POINTS + " point(s)!").queue();
 			} else {
 				event.getChannel().sendMessage("You must wait " + getPlayerTimer(event.getMember()) + " seconds").queue();
 			}
@@ -75,7 +77,7 @@ public class CurrencySystem extends ListenerAdapter {
 		if (!playerCurrency.containsKey(member)) {
 			setPlayerCurrency(member, 0);
 		}
-		setPlayerCurrency(member, getPlayerCurrency(member) + 1);
+		setPlayerCurrency(member, getPlayerCurrency(member) + POINTS);
 	}
 	
 	// Returns if user has a cooldown timer

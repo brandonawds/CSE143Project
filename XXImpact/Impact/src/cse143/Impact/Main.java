@@ -4,32 +4,34 @@ package cse143.Impact;
 import javax.security.auth.login.LoginException;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
-import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 
+// Main creates the discord bot with a unique token, listening for commands in the chat
 public class Main {
 	public static JDA jda;
+	// The prefix to the commands typed in discord
 	public static String prefix = "!";
-	
 	
 	// Main Method
 	public static void main(String[] args) throws LoginException {
 		// Creating the bot with the token they gave me in discord dev portal
 		jda = JDABuilder.createDefault("NzgzNTU4NDQzNTE5NzA1MDg4.X8cfqg.rj_i-ZmTUH_z-bNCFwkninxnkI0").build();
 		
-		// Setting bot as idle
-		jda.getPresence().setStatus(OnlineStatus.IDLE);
+		// Setting bot activity 
+		jda.getPresence().setActivity(Activity.playing("Studying for CSE143"));
 		
-		// Setting bot activity with setActivity(Activity.playing/watching/etc)
-		jda.getPresence().setActivity(Activity.playing("VALORANT"));
-		
-		CurrencySystem system = new CurrencySystem();
+		// Roll a new prize rolling system
 		Roll roll = new Roll();
+		
+		// UserInfo creates a user profile for each user 
 		UserInfo info = new UserInfo();
+		
+		// CurrencySystem creates the currency system and sets the cooldown timer
+		CurrencySystem system = new CurrencySystem();
 		system.startTimer();
 		
 		// Telling bot to listen to commands
-		jda.addEventListener(new Commands());
+		jda.addEventListener(new BotInfo());
 		jda.addEventListener(system);
 		jda.addEventListener(roll);
 		jda.addEventListener(info);

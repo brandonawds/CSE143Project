@@ -1,6 +1,5 @@
 package cse143.Impact;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -10,10 +9,16 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import java.util.Random;
 import java.util.Set;
 
+// Roll gives a random snail/prize to the user and costs a certain amount of points.
 public class Roll extends CurrencySystem {
+	// Stores the prizes each player currently has
 	public static HashMap<Member, Set<Prize>> playerPrizes = new HashMap<>();
+	// Stores user currency
 	HashMap<Member, Integer> playerCurrency = CurrencySystem.playerCurrency;
+	// The amount of points it costs to roll
+	private static final int COST = 1;
 	
+	// Listens to discord chat and responds when a valid command is sent
 	public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
 		// Getting the argument/commands
 		String[] args = event.getMessage().getContentRaw().split(" ");
@@ -28,7 +33,7 @@ public class Roll extends CurrencySystem {
 				Prize prize = rollRandomPrize();
 				setPlayerCurrency(event.getMember(), getPlayerCurrency(event.getMember()) - 1);
 				addPrize(event.getMember(), prize);
-				// Sends update message to user
+				// Sends update message to user as an embed
 				EmbedBuilder newRoll = new EmbedBuilder();
 				newRoll.setColor(0xa2defc);
 				newRoll.setAuthor("You Rolled...");
@@ -38,11 +43,8 @@ public class Roll extends CurrencySystem {
 				event.getChannel().sendMessage(newRoll.build()).queue();
 				// Clears the embed message for storage sake
 				newRoll.clear();
-				//event.getChannel().sendMessage("Cost: 1 point").queue();
-				//event.getChannel().sendMessage("You got " + prize.name).queue();
-				//event.getChannel().sendMessage("Balance: " + getPlayerCurrency(event.getMember()) + " points").queue();
 			} else {
-				event.getChannel().sendMessage("You need at least 1 point to roll").queue();
+				event.getChannel().sendMessage("You need at least " + COST + " point to roll").queue();
 			}
 		}
 		
@@ -106,10 +108,15 @@ public class Roll extends CurrencySystem {
 	
 	// Constructs a Prize object with name as parameter
 	public static class Prize {
+		// Name of prize
 		public String name;
+		// Rarity of prize
 		public String rarity;
+		// URL to prize image
 		public String url;
 		
+		// Constructs a new Prize with the given name and image url
+		// Sets the rarity of the prize based on the name
 		public Prize(String name, String url) {
 			this.url = url;
 			this.name = name;
