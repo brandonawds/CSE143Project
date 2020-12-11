@@ -24,7 +24,7 @@ public class CurrencySystem extends ListenerAdapter {
 		String[] args = event.getMessage().getContentRaw().split(" ");
 		
 		// If !money, bot will send showing the users currency
-		if (args[0].equalsIgnoreCase(Main.prefix + "points")) {
+		if (args[0].equalsIgnoreCase(Main.PREFIX + "points")) {
 			if(!playerCurrency.containsKey(event.getMember())) {
 				setPlayerCurrency(event.getMember(), 0);
 			}
@@ -32,7 +32,7 @@ public class CurrencySystem extends ListenerAdapter {
 		}
 		
 		// If !cd, bot will send remaining cooldown timer
-		if (args[0].equalsIgnoreCase(Main.prefix + "cd")) {
+		if (args[0].equalsIgnoreCase(Main.PREFIX + "cd")) {
 			if(playerTimer.containsKey(event.getMember())) {
 				event.getChannel().sendMessage(getPlayerTimer(event.getMember()) + " seconds").queue();
 			} else {
@@ -41,7 +41,7 @@ public class CurrencySystem extends ListenerAdapter {
 		}
 		
 		// If !getmoney, bot will add currency to user if user does not have a cooldown
-		if (args[0].equalsIgnoreCase(Main.prefix + "getPoints")) {
+		if (args[0].equalsIgnoreCase(Main.PREFIX + "getPoints")) {
 			if (canGetCurrency(event.getMember())) {
 				addCurrency(event.getMember()); 
 				setPlayerTimer(event.getMember(), TIMER);

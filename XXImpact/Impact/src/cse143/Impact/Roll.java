@@ -26,7 +26,7 @@ public class Roll extends CurrencySystem {
 		// Rolls random prize from prizeNames
 		// User needs to have at least 1 point to roll
 		// Adds won prize to that user's list of prizes
-		if (args[0].equalsIgnoreCase(Main.prefix + "roll")) {
+		if (args[0].equalsIgnoreCase(Main.PREFIX + "roll")) {
 			if(!playerCurrency.containsKey(event.getMember())) {
 				event.getChannel().sendMessage("You need points to roll. Try command: !getmoney").queue();
 			} else if(getPlayerCurrency(event.getMember()) > 0) {
@@ -49,7 +49,7 @@ public class Roll extends CurrencySystem {
 		}
 		
 		// Creates an embed of your prizes
-		if (args[0].equalsIgnoreCase(Main.prefix + "mySnails")) {
+		if (args[0].equalsIgnoreCase(Main.PREFIX + "mySnails")) {
 			if (!playerPrizes.containsKey(event.getMember())) {
 				event.getChannel().sendMessage("You have no snails").queue();
 			} else {

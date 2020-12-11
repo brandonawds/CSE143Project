@@ -20,7 +20,7 @@ public class UserInfo extends Roll {
 		String[] args = event.getMessage().getContentRaw().split(" ");
 		
 		// Sends user info of a mentioned member
-		if (args[0].equalsIgnoreCase(Main.prefix + "userInfo")) {
+		if (args[0].equalsIgnoreCase(Main.PREFIX + "userInfo")) {
 			if (event.getMessage().getMentionedMembers().size() == 0) {
 				event.getChannel().sendMessage("Must mention member. Ex: !userInfo @<member>").queue();
 			} else {

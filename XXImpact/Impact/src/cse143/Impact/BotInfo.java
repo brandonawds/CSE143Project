@@ -13,7 +13,7 @@ public class BotInfo extends ListenerAdapter {
 		String[] args = event.getMessage().getContentRaw().split(" ");
 		
 		// If !info, bot will send back information about itself
-		if (args[0].equalsIgnoreCase(Main.prefix + "info")) {
+		if (args[0].equalsIgnoreCase(Main.PREFIX + "info")) {
 			EmbedBuilder info = new EmbedBuilder();
 			info.setTitle("Snail Impact Bot Information");
 			info.setDescription("Snail Impact is a Discord bot based on the gacha game system. A player pays a specific amount of currency to “spin” the gacha, "

@@ -10,12 +10,12 @@ import net.dv8tion.jda.api.entities.Activity;
 public class Main {
 	public static JDA jda;
 	// The prefix to the commands typed in discord
-	public static String prefix = "!";
+	public static final String PREFIX = "!";
 	
 	// Main Method
 	public static void main(String[] args) throws LoginException {
 		// Creating the bot with the token they gave me in discord dev portal
-		jda = JDABuilder.createDefault("NzgzNTU4NDQzNTE5NzA1MDg4.X8cfqg.rj_i-ZmTUH_z-bNCFwkninxnkI0").build();
+		jda = JDABuilder.createDefault(<TOKEN>).build();
 		
 		// Setting bot activity 
 		jda.getPresence().setActivity(Activity.playing("Studying for CSE143"));
