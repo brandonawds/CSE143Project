@@ -34,14 +34,14 @@ public class UserInfo extends Roll {
 				if (playerPrizes.containsKey(name)) { 
 					user = addPrizeFields(user, name, false);
 				} else {
-					event.getChannel().sendMessage("No Snails").queue();
+					event.getChannel().sendMessage("No Snails, try rolling with !roll").queue();
 				}
 				
 				// Check Balance
 				if (playerCurrency.containsKey(name)) {
 					user.addField("Point Balance: ", String.valueOf(playerCurrency.get(name)), false);
 				} else {
-					event.getChannel().sendMessage(name.getEffectiveName() + " is broke :(").queue();
+					event.getChannel().sendMessage(name.getEffectiveName() + " is broke :(. Try getting points with !getPoints").queue();
 				}
 				event.getChannel().sendMessage(user.build()).queue();
 				user.clear();
